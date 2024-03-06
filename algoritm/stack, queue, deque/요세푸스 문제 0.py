@@ -5,8 +5,10 @@
 # 1 4 5
 # 1 4
 
-
+import time
 from collections import deque
+
+startTime = time.time()
 
 n, k = map(int, input().split())
 
@@ -17,7 +19,10 @@ result = []
 
 for i in range(0, len(n)):
     for j in range(0, k - 1):
-        # if len(n) < k:
         deque.append(deque.popleft())
     result.append(deque.popleft())
 print("<" + ", ".join(map(str, result)) + ">")
+
+endTime = time.time()
+
+print(endTime - startTime)
