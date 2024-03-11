@@ -14,4 +14,4 @@ while True:
         print(" + ".join(map(str, list)))
 
     else:
-        print(f"{data} is NOT Perfect.")
+        print(f"{data} is NOT perfect.")
