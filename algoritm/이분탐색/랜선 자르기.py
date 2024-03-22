@@ -10,45 +10,17 @@ data = []
 
 for i in range(n):
     data.append(int(input()))
+start, end = 1, max(data)
 
-data.sort()
-count = 0
-divNum = data[len(data) // 2]
-
-while True:
-    count = 0
+while start <= end:
+    lineCount = 0
+    mid = (start + end) // 2
     for i in data:
-        count += i // divNum
-    if count == m:
-        print(int(divNum))
-        break
-    elif count < m:
-        divNum -= divNum / 2
-    elif count > m:
-        divNum += divNum / 2
+        lineCount += i // mid
 
-# divNum = data[len(data) - 1]
-# while count != m:
-#     count = 0
-#     for i in data:
-#         count += i // divNum
-#
-#     if count == m:
-#         print(int(divNum))
-#         break
-#     elif count < m:
-#         divNum //= 2
-#     elif count > m:
-#         divNum += divNum // 2
-# divNum = sum(data) // m
-# while True:
-#     count = 0
-#     for i in data:
-#         count += i // divNum
-#     if count == m:
-#         print(int(divNum))
-#         break
-#     elif count < m:
-#         divNum /= 2
-#     elif count > m:
-#         divNum += divNum / 2
+    if lineCount >= m:
+        start = mid + 1
+    elif lineCount < m:
+        end = mid - 1
+
+print(end)
